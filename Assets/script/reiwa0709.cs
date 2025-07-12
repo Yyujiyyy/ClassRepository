@@ -40,9 +40,17 @@ public class reiwa0709 : MonoBehaviour
                 // Y座標計算
                 // 偶数列：上から下に配置（startYからrow分だけ下に移動）
                 // 奇数列：下から上に配置（startYから行数分戻ってrow分だけ上に移動）
-                int yPos = isNormalOrder
-                    ? (startY - row)
-                    : (startY - (rowLength - 1) + row);
+
+                int yPos;
+
+                if (isNormalOrder)          //isNormalOrderがtrueの時
+                {
+                    yPos = startY - row;
+                }
+                else
+                {
+                    yPos = startY - (rowLength - 1) + row;
+                }
 
                 // 配置位置の計算（Xは列番号分ずらす、Yは上で計算）
                 Vector3 spawnPos = new Vector3(startX + col, yPos, 0);
